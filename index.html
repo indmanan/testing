@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #zh{
+                color: red;
+                font-family: sans-serif;
+            }
+            #assignment{
+                font-size: 30px;
+                color: blue;
+                text-align: center;
+            }
+            #zi,#zo,#reset{
+                border: 1px solid #ccc;
+                background-color: white;
+                padding: 5px;
+                margin: 5px;
+                float: left;
+                color: black;
+            }
+        </style>
+    </head>
+    <body>  
+        <h1>Show password</h1>
+        <input type="password" id="password" >
+        <input type="checkbox" id="box"><span id="show_text">Show Password</span>
+        <h1 id="zh">Zoom in, Zoom out and Reset Functionality</h1>
+        <h1 id="assignment">Manan Kumar</h1>
+        <button id="zi">Zoom in</button>
+        <button id="zo">Zoom out</button>
+        <button id="reset">Reset</button>
+        
+        
+        
+        <br />
+        <h1 id="h1c">Check even or odd number</h1>
+        <input type="number" id="num" >
+        <button id="check">Check</button>
+        <p id="result"></p>
+        <h1>User Validation</h1>
+        username <input type="text" id="user">
+        <button onclick="validate()">Check</button>
+        <p id="result2"></p>
+        <h1>Photo hide and Show</h1>
+        <img src="pic.jpg" id="result3" width="300px" height="200px"><br />
+        <button id="btn" onclick="showhide()">Hide</button>
+    </body>
+</html>
+   
+    <script>
+        var check = document.getElementById("box");
+        var showtxt = document.getElementById("show_text");
+        check.onclick = function na() 
+        {
+            var pass = document.getElementById("password");
+            if(check.checked == true)
+                {
+                    pass.type = "text";
+                    showtxt.innerHTML = "Hide Password";
+                }
+            else
+                {
+                    pass.type = "password";
+                    showtxt.innerHTML = "Show Password";
+                }
+            
+        }
+        
+        var zi = document.getElementById("zi");
+        var zo = document.getElementById("zo");
+        var reset = document.getElementById("reset");
+        var data = document.getElementById("assignment");
+        zo.onclick = function first()
+        {
+         data.style.fontSize ="40px";
+            zo.onclick = function second()
+            {
+                data.style.fontSize = "50px";
+                zo.onclick = function three()
+                {
+                    data.style.fontSize = "60px";
+                    zo.onclick = function four()
+                    {
+                        data.style.fontSize = "70px";
+                    }
+                }
+            }
+        }
+        zi.onclick = function first()
+        {
+            var x = data.style.fontSize;
+            data.style.fontSize = "20px";
+            zi.onclick = function second()
+            {
+                data.style.fontSize= "15px";
+                zi.onclick = function third()
+                {
+                    data.style.fontSize = "10px";
+                }
+            }
+        }
+        reset.onclick = function first()
+        {
+            data.style.fontSize = "30px";
+        }
+        
+        
+        
+        
+        function showhide()
+        {
+            var img = document.getElementById("result3");
+            var btn = document.getElementById("btn");
+            var btntext = document.getElementById("btn").innerHTML;
+            img.style.display = "none";
+            btn.innerHTML = "show";
+            if(btntext == "show")
+                {
+                    img.style.display = "inline";
+                    btn.innerHTML = "hide";
+                }
+            else
+                {
+                    img.style.display = "none";
+                }
+        }
+        var chk = document.getElementById("check");
+    chk.onclick = function()
+        {
+            var num = document.getElementById("num").value;
+            var x = Number(num);
+            var res = document.getElementById("result");
+            if(x%2==0)
+                {
+                    res.innerHTML = x +" is a even number.";
+                }
+            else
+                {
+                    res.innerHTML = x +" is a odd number.";
+                }
+        }
+        function validate()
+        {
+            var data = document.getElementById("user").value;
+            var res = document.getElementById("result2");
+            if(data == "")
+                {
+                    res.innerHTML = "username is empty."
+                }
+            else
+                {
+                    res.innerHTML = "user login is successful."
+                }
+            
+            
+        }
+    </script>
+
+
+
+
